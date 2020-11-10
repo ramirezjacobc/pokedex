@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started
 
 * Clone repo
 * Be sure you are using following node version v12.16.1, I recomend use [nvm](https://github.com/nvm-sh/nvm)
