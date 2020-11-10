@@ -1,0 +1,44 @@
+@import "../../base/breakpoints";
+@import '../../base/colors';
+.card {
+  background: $white;
+  border: solid 1px $lightGray;
+  border-radius: 0.5rem 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    border-color:  $lightBlue;
+    box-shadow: 0 0 0.75rem 0.0625rem rgba(148, 149, 163, 1);
+  }
+
+  &__heading {
+    padding: 2rem 1.25rem;
+
+    img {
+      display: block;
+      margin: auto;
+      width: 10rem;
+
+      @include medium {
+        width: 5rem;
+      }
+    }
+  }
+
+  &__title {
+    color: $gray;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  &__tag {
+    color: $lightGray;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    text-align: center;
+  }
+}

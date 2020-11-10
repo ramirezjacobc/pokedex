@@ -1,0 +1,61 @@
+@import "../../base/spacing";
+@import "../../base/breakpoints";
+
+@mixin grid {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: -$space-double;
+
+  @include medium {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@mixin grid__item($columns: 6) {
+  flex: 1 1 100%;
+  margin-bottom: 1rem;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  @include medium {
+    flex-basis: calc(
+      #{100% / ($columns / 2)} - #{$space * (($columns / 2) - 1) / ($columns / 2)}
+    );
+    flex-grow: 0;
+
+    &:nth-of-type(n) {
+      margin: 0 $space $space 0;
+    }
+
+    &:nth-of-type(#{($columns / 2)}n),
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  @include xl {
+    flex-basis: calc(
+      #{100% / $columns} - #{$space-double * ($columns - 1) / $columns}
+    );
+
+    &:nth-of-type(n) {
+      margin: 0 $space-double $space-double 0;
+    }
+
+    &:nth-of-type(#{$columns}n),
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.grid {
+  @include grid;
+
+  &__item {
+    @include grid__item;
+  }
+}

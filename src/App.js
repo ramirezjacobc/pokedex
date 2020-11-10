@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Pokedex from './components/templates/Pokedex';
+import { IntlProvider, FormattedMessage } from "react-intl";
+
+const messages = {
+  en: {
+    defaultMessage: 'Welcome to Pokedex App'
+  },
+  es: {
+    defaultMessage: 'Bienvenido a la aplicacion Pokedex'
+  },
+  fr: {
+    defaultMessage: 'Bienvenue dans l application Pokedex'
+  }
+};
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [locale, setLocale] = useState('es');
+
+  return <>
+    <nav className='navigation'>
+      <IntlProvider locale={locale} messages={messages[locale]}>
+        <blockquote>
+          <FormattedMessage id="defaultMessage" />
+        </blockquote>
+      </IntlProvider>
+      <ul>
+        <li onClick={ () => setLocale('en') } className={ locale === 'en' ? 'active' : ''}>English</li>
+        <li onClick={ () => setLocale('es') } className={ locale === 'es' ? 'active' : ''}>Spanish</li>
+        <li onClick={ () => setLocale('fr') } className={ locale === 'fr' ? 'active' : ''}>French</li>
+      </ul>
+    </nav>
+    
+    <Pokedex />
+  </>;
 }
 
 export default App;

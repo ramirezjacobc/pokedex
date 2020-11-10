@@ -1,0 +1,31 @@
+@import '../../base/mixin';
+@import '../../base/colors';
+
+.range-slider {
+  width: 300px;
+}
+.rs-slider-bar {
+  height: 10px!important;
+}
+
+.rs-slider-progress-bar {
+  @include gradient_background($blue ,$lightBlue);
+  height: 10px!important;
+}
+
+.custom-slider .rs-slider-handle {
+  background-color: $white;
+  border: solid 1px $lightGray;
+  border-radius: 0.5rem;
+  color: $gray;
+  cursor: pointer;
+  font-weight: 700;
+  margin-left: 0;
+  padding: 3px;
+  text-align: center;
+  top: -7px;
+}
+
+.rs-slider-handle::before {
+  display: none;
+}

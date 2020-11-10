@@ -1,0 +1,37 @@
+@import '~breakpoint-sass/stylesheets/breakpoint';
+
+$xs: 320px;
+$small: 480px;
+$medium: 720px;
+$large: 920px;
+$xl: 1160px;
+
+@mixin xs {
+  @include breakpoint($xs) {
+    @content;
+  }
+}
+
+@mixin small {
+  @include breakpoint($small) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @include breakpoint($medium) {
+    @content;
+  }
+}
+
+@mixin large {
+  @include breakpoint($large) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include breakpoint($xl) {
+    @content;
+  }
+}

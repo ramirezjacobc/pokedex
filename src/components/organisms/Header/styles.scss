@@ -1,0 +1,23 @@
+.header {
+
+  &__logo {
+    display: block;
+    margin: 1rem auto;
+  }
+
+  &__search-form {
+    display: block;
+    margin: 1rem auto 2.5rem auto;
+    max-width: 700px;
+
+    input[type="search"] {
+      background: url(./assets/search.png) no-repeat;
+      background-position-y: center;
+      background-position-x: .25rem;
+      background-size: 2rem;
+      font-size: 1.125rem;
+      padding: 1rem 1rem 1rem 2.5rem;
+      width: 100%;
+    }
+  }
+}
