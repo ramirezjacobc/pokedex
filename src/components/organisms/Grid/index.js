@@ -3,7 +3,7 @@ import './styles.scss';
 
 const Grid = ({start, end, items, handleOpenModal }) => {
   return <section className='grid'>
-    { items.slice(start, end).map(({ name, url }, index) => <div 
+    { items.length > 0 && items.slice(start, end).map(({ name, url }, index) => <div 
       className='grid__item'
       onClick={ () => handleOpenModal(url) }
       key={ index }>
@@ -13,6 +13,8 @@ const Grid = ({start, end, items, handleOpenModal }) => {
         name={ name }
       />
     </div> )}
+
+    { items.length === 0 && <blockquote><br/><b/><b>No data available</b></blockquote> }
   </section> 
 }
 
